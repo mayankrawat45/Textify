@@ -47,15 +47,15 @@ const Textform = (props) => {
                     onChange={handleChange}
                 />
                 <div className='d-flex justify-content-between'>
-                    <button className='btn btn-primary my-3' onClick={handleupClick}>Convert to UpperCase</button>
-                    <button className='btn btn-primary my-3' onClick={handleloClick}>Convert to LowerCase</button>
-                    <button className='btn btn-primary my-3' onClick={handleclear}>Clear</button>
+                    <button className='btn btn-primary my-3 mx-1' onClick={handleupClick}>Convert to UpperCase</button>
+                    <button className='btn btn-primary my-3 mx-1' onClick={handleloClick}>Convert to LowerCase</button>
+                    <button className='btn btn-primary my-3 mx-1' onClick={handleclear}>Clear</button>
                 </div>
             </div>
             <div className='container' style={{color:props.mode==="light"?"black":"white"}}>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} words {text.length} characters</p>
-                <p>{text.split(" ").length * 0.08} Minutes to read</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} words {text.length} characters</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!=0}).length * 0.08} Minutes to read</p>
                 <p>{text.split("\n").length } Paragraphs</p>
             </div>
             <div className='container' style={{color:props.mode==="light"?"black":"white"}}>

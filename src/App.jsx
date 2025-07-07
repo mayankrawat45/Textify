@@ -7,14 +7,14 @@ import Navbar from './components/Navbar'
 import Textform from './components/Textform'
 import About from './components/About'
 import Alert from './components/Alert'
-import { BrowserRouter as Router ,Routes,Route,Link} from 'react-router-dom'
+import { Routes,Route,Link} from 'react-router-dom'
 
 
 
 function App() {
   const [navmode,setNavMode]=useState("light")
   const[sbtn,setSbtn]=useState("Enable dark mode")
-  const [scolor,setScolor]=useState("light")
+  const [scolor,setScolor]=useState("dark")
   
   const moding=()=>{
     if(navmode=="dark"){
@@ -72,14 +72,13 @@ function App() {
 
   return (
     <>
-    <Router>
+    
      <Navbar title ="TextUtils" about="About-TextUtils" mode={navmode} moding={moding} setbtn={sbtn} scolor={scolor} gmode={getgreen} gr={green} sg={sg}/>
      <Alert alert={alert}/>
      <Routes>
-      <Route path='/about' element={<About/>} />
+      <Route path='/about' element={<About mode={navmode} scolor={scolor}/>} />
       <Route path='/' element={<Textform showalert={showalert} mode={navmode} />} />
      </Routes>
-     </Router>
     </>
   )
 }

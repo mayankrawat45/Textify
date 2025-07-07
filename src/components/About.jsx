@@ -1,31 +1,17 @@
 import React, { useState } from 'react'
 
-const About = () => {
-    const [myStyle,setMyStyle]=useState({
-        color:'white',
-        backgroundColor:"black"
-    })
-    const [btntext,setBtntext]=useState('Enable dark Mode')
-     const toggleStyle=()=>{
-        if(myStyle.color==='white'){
-            setMyStyle({
-                color:"black",
-                backgroundColor:"white"
-            })
-            setBtntext("Enable dark Mode")
-        }
-        else{
-            setMyStyle({
-                color:"white",
-                backgroundColor:"black"
-            })
-            setBtntext("Enable white Mode")
-        }
+const About = (props) => {
+
+    let myStyle={
+        
+        color: props.mode==='light'?"#808080":"white",
+        backgroundColor: props.mode==='light'?"white":"#808080"
     }
+    
     
     return (
         <div className='container' style={myStyle}>
-          <h1 className='my-3'>About Us</h1>
+            <h1 className='my-3'>About Us</h1>
             <div className="accordion" id="accordionExample" >
                 <div className="accordion-item">
                     <h2 className="accordion-header">
@@ -37,7 +23,7 @@ const About = () => {
                             aria-expanded="true"
                             aria-controls="collapseOne" style={myStyle}
                         >
-                            Accordion Item #1
+                            <strong>What is TextUtils?</strong>
                         </button>
                     </h2>
                     <div
@@ -46,13 +32,7 @@ const About = () => {
                         data-bs-parent="#accordionExample" style={myStyle}
                     >
                         <div className="accordion-body">
-                            <strong>This is the first item’s accordion body.</strong> It is shown by
-                            default, until the collapse plugin adds the appropriate classes that we
-                            use to style each element. These classes control the overall appearance,
-                            as well as the showing and hiding via CSS transitions. You can modify
-                            any of this with custom CSS or overriding our default variables. It’s
-                            also worth noting that just about any HTML can go within the{" "}
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+                            TextUtils is a simple and efficient text manipulation tool that helps users format and analyze their text quickly. It is designed to improve productivity, especially when working with a large amount of text data.
                         </div>
                     </div>
                 </div>
@@ -67,7 +47,7 @@ const About = () => {
                             aria-controls="collapseTwo"
                             style={myStyle}
                         >
-                            Accordion Item #2
+                            <strong>Why Use TextUtils?</strong>
                         </button>
                     </h2>
                     <div
@@ -77,14 +57,7 @@ const About = () => {
                         style={myStyle}
                     >
                         <div className="accordion-body">
-                            <strong>This is the second item’s accordion body.</strong> It is hidden
-                            by default, until the collapse plugin adds the appropriate classes that
-                            we use to style each element. These classes control the overall
-                            appearance, as well as the showing and hiding via CSS transitions. You
-                            can modify any of this with custom CSS or overriding our default
-                            variables. It’s also worth noting that just about any HTML can go within
-                            the <code>.accordion-body</code>, though the transition does limit
-                            overflow.
+                            TextUtils is fast and easy to use, making it an ideal tool for anyone who regularly works with text. It greatly simplifies formatting tasks such as writing emails, creating blog posts, or preparing documents. The app is completely free and accessible online, with no installation required. Its user-friendly interface and helpful features make it a perfect choice for students, writers, developers, and content creators who need a quick and reliable way to format and analyze text.
                         </div>
                     </div>
                 </div>
@@ -99,7 +72,7 @@ const About = () => {
                             aria-controls="collapseThree"
                             style={myStyle}
                         >
-                            Accordion Item #3
+                            <strong>Compatibility</strong>
                         </button>
                     </h2>
                     <div
@@ -109,20 +82,10 @@ const About = () => {
                         style={myStyle}
                     >
                         <div className="accordion-body">
-                            <strong>This is the third item’s accordion body.</strong> It is hidden
-                            by default, until the collapse plugin adds the appropriate classes that
-                            we use to style each element. These classes control the overall
-                            appearance, as well as the showing and hiding via CSS transitions. You
-                            can modify any of this with custom CSS or overriding our default
-                            variables. It’s also worth noting that just about any HTML can go within
-                            the <code>.accordion-body</code>, though the transition does limit
-                            overflow.
+                            TextUtils works smoothly on modern browsers and is responsive for both desktop and mobile devices.
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='container my-3'>
-                <button className='btn btn-primary' onClick={toggleStyle}>{btntext}</button>
             </div>
 
         </div>
